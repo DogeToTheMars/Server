@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
-<mapper namespace="com.ssafy.house.dao.CommercialDao">
+<mapper namespace="com.doge.mars.dao.CommercialDao">
 
-	<select id="getCafeList" parameterType="map" resultType="com.ssafy.house.dto.CommercialDto">
+	<select id="getCafeList" parameterType="map" resultType="com.doge.mars.dto.CommercialDto">
 		SELECT *,
 			(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng)
 				-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))
@@ -15,7 +15,7 @@
 	</select>
 	
 	
-	<select id="getConvenienceList" parameterType="map" resultType="com.ssafy.house.dto.CommercialDto">
+	<select id="getConvenienceList" parameterType="map" resultType="com.doge.mars.dto.CommercialDto">
 		SELECT *,
 			(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng)
 				-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))
@@ -26,7 +26,7 @@
 		ORDER BY distance
 	</select>
 	
-	<select id="getGasStationList" parameterType="map" resultType="com.ssafy.house.dto.CommercialDto">
+	<select id="getGasStationList" parameterType="map" resultType="com.doge.mars.dto.CommercialDto">
 		SELECT *,
 			(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng)
 				-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))
@@ -37,7 +37,7 @@
 		ORDER BY distance
 	</select>
 	
-	<select id="getMartList" parameterType="map" resultType="com.ssafy.house.dto.CommercialDto">
+	<select id="getMartList" parameterType="map" resultType="com.doge.mars.dto.CommercialDto">
 		SELECT *,
 			(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng)
 				-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))
@@ -48,7 +48,7 @@
 		ORDER BY distance
 	</select>
 	
-	<select id="getPharmacyList" parameterType="map" resultType="com.ssafy.house.dto.CommercialDto">
+	<select id="getPharmacyList" parameterType="map" resultType="com.doge.mars.dto.CommercialDto">
 		SELECT *,
 			(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng)
 				-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))

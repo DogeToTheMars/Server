@@ -2,6 +2,7 @@ package com.doge.mars.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.PositiveOrZero;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,6 +31,10 @@ public class UserDto {
 	@NotNull
 	@Size(min = 3, max = 50)
 	private String nickname;
+
+	@NotNull
+	@PositiveOrZero
+	private long balance;
 
 	public String getUsername() {
 		return username;

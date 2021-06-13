@@ -49,6 +49,9 @@ public class User {
 	@Column(name = "nickname", length = 50)
 	private String nickname;
 
+	@Column(name = "balance")
+	private long balance;
+
 	@JsonIgnore
 	@Column(name = "activated")
 	private boolean activated;

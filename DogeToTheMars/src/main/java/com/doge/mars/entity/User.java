@@ -88,6 +88,14 @@ public class User {
 		this.nickname = nickname;
 	}
 
+	public Long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Long balance) {
+		this.balance = balance;
+	}
+
 	public boolean isActivated() {
 		return activated;
 	}

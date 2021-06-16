@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.doge.mars.dao.UserDealDao">
+	
+	<update id="plusUserBalance" parameterType="map">
+		UPDATE user 
+		SET balance = balance + (#{amount} * #{averagePrice})
+		WHERE username = #{userId}
+	</update>
+	
+	<update id="minusUserBalance" parameterType="map">
+		UPDATE user 
+		SET balance = balance - (#{amount} * #{averagePrice})
+		WHERE username = #{userId}
+	</update>
+</mapper>

@@ -36,7 +36,8 @@ public class UserService {
 //                .build();
 
     	
-    	User user = new User(userDto.getUsername(), passwordEncoder.encode(userDto.getPassword()), userDto.getNickname(), true, Collections.singleton(authority));
+//    	User user = new User(userDto.getUsername(), passwordEncoder.encode(userDto.getPassword()), userDto.getNickname(), true, Collections.singleton(authority));
+    	User user = new User(userDto.getUsername(), passwordEncoder.encode(userDto.getPassword()), userDto.getTel(), true, Collections.singleton(authority), userDto.getEmail(), userDto.getBalance());
 //        User user = User.builder()
 //                .username(userDto.getUsername())
 //                .password(passwordEncoder.encode(userDto.getPassword()))

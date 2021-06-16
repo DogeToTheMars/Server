@@ -10,6 +10,8 @@
     
     <mappers>
     	<mapper resource="mapper/commercial_query.xml" />
+    	<mapper resource="mapper/deal_query.xml" />
+    	<mapper resource="mapper/userDeal_query.xml" />
     </mappers>
     
 </configuration>

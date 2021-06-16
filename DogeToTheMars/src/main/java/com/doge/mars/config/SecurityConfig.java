@@ -83,6 +83,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //인증 없이(토큰 없이) 접근을 허용하는 경우
                 .antMatchers("/api/hello").permitAll()
                 .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/buy").permitAll()
                 .antMatchers("/api/signup").permitAll()
                 //나머지는 모두 인증을 받아야 함
                 .anyRequest().authenticated()

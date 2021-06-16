@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.doge.mars.dao.DealDao">
+
+	<insert id="buyCoin" parameterType="map">
+		INSERT INTO possesion (coin_name, user_id, amount, average_price) VALUES(#{coinName}, (SELECT user_id FROM user WHERE username = #{userId}), #{amount}, #{averagePrice})
+	</insert>
+	
+	<update id="updateCoin" parameterType="map">
+		UPDATE possesion 
+		SET amount = amount + #{amount},
+		average_price = (average_price*amount + #{amount} * #{averagePrice}) / (amount + #{amount})
+		WHERE coin_name = #{coinName}
+		AND user_id = (SELECT user_id FROM user WHERE username = #{userId})
+	</update>
+	
+	<update id="sellCoin" parameterType="map">
+		UPDATE possesion 
+		SET amount = amount - #{amount}
+		WHERE coin_name = #{coinName}
+		AND user_id = (SELECT user_id FROM user WHERE username = #{userId})
+	</update>
+	
+	<select id="getCoinList" parameterType="String" resultType="com.doge.mars.dto.CoinDto">
+		SELECT coin_name as coinName , amount as amount, average_price as averagePrice
+		FROM possesion
+		WHERE user_id = (SELECT user_id FROM user WHERE username = #{userId})
+	</select>
+	
+	<delete id="deleteCoin" parameterType="map">
+		DELETE FROM possesion
+		WHERE coin_name = #{coinName}
+		AND user_id = (SELECT user_id FROM user WHERE username = #{userId})
+	</delete>
+	
+	<select id="getCoin" parameterType="map" resultType="com.doge.mars.dto.CoinDto">
+		SELECT coin_name as coinName , amount as amount, average_price as averagePrice
+		FROM possesion
+		WHERE user_id = (SELECT user_id FROM user WHERE username = #{userId})
+		AND coin_name = #{coinName}
+	</select>
+	
+</mapper>

@@ -5,12 +5,6 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 //@Getter
 //@Setter
 //@Builder
@@ -26,10 +20,17 @@ public class UserDto {
 	@NotNull
 	@Size(min = 3, max = 100)
 	private String password;
-
+	
 	@NotNull
 	@Size(min = 3, max = 50)
-	private String nickname;
+	private String tel;
+	
+	@NotNull
+	@Size(min = 3, max = 50)
+	private String email;
+	
+	@NotNull
+	private int balance;
 
 	public String getUsername() {
 		return username;
@@ -47,14 +48,27 @@ public class UserDto {
 		this.password = password;
 	}
 
-	public String getNickname() {
-		return nickname;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
-	
-	
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
 }

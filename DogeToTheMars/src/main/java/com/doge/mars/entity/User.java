@@ -46,8 +46,14 @@ public class User {
 	@Column(name = "password", length = 100)
 	private String password;
 
-	@Column(name = "nickname", length = 50)
-	private String nickname;
+	@Column(name = "tel", length = 50)
+	private String tel;
+	
+	@Column(name = "email", length = 50)
+	private String email;
+	
+	@Column(name = "balance", length = 50)
+	private int balance;
 
 	@JsonIgnore
 	@Column(name = "activated")
@@ -76,13 +82,28 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getNickname() {
-		return nickname;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 
 	public boolean isActivated() {
@@ -101,24 +122,28 @@ public class User {
 		this.authorities = authorities;
 	}
 	
-	public User(Long userId, String username, String password, String nickname, boolean activated,
-			Set<Authority> authorities) {
+	public User(Long userId, String username, String password, String tel, boolean activated,
+			Set<Authority> authorities, String email, int balance) {
 		super();
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
-		this.nickname = nickname;
+		this.tel = tel;
 		this.activated = activated;
 		this.authorities = authorities;
+		this.balance = balance;
+		this.email = email;
 	}
-	public User(String username, String password, String nickname, boolean activated,
-			Set<Authority> authorities) {
+	public User(String username, String password, String tel, boolean activated,
+			Set<Authority> authorities, String email, int balance) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.nickname = nickname;
+		this.tel = tel;
 		this.activated = activated;
 		this.authorities = authorities;
+		this.balance = balance;
+		this.email = email;
 	}
 	
 	public User() {}
